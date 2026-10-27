@@ -35,7 +35,7 @@ support-my-work/
 └── README.md
 ```
 
-Every asset and script path is relative, so the page works under the `/support-my-work/` subpath without any changes. Links back to the main site (Home, Resume, Publications, Certificates) are absolute.
+Every asset and script path is relative, so the page works under the `/support-my-work/` subpath without any changes. Links to the main site use absolute URLs. My name and photo in the header go to the home page, Hire Me goes to the resume, and Anurup goes to `/anurup/`.
 
 ## How the payment link is built
 
@@ -112,7 +112,7 @@ Later updates are just commit and push. Pages redeploys on every push to `main`.
 - iPhones don't show an app picker for `upi://` links. iOS opens whichever installed UPI app registered for the link, which may not be the one the person wanted. The QR code and the copy button cover that case.
 - Some UPI apps are stricter about link-initiated payments to personal (non-merchant) UPI IDs and may show a generic error or a limit warning. When that happens, scanning the QR code or typing the UPI ID usually works.
 - The QR code comes from [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) 1.4.4 (MIT), loaded from cdnjs with a Subresource Integrity hash. If cdnjs is unreachable, `script.js` loads the same library from jsDelivr, also hash-checked. If both fail, the page says so, and the button and UPI ID still work.
-- The page uses no bank, UPI app or payment-network logos. The icons are from [Tabler Icons](https://tabler.io/icons) (MIT), inlined as an SVG sprite. The favicon is the "Donate" icon from [SVG Repo](https://www.svgrepo.com/) (`donate-svgrepo-com.svg`), recoloured to the site's slate accent. The avatar is the one from the main site.
+- The page uses no bank, UPI app or payment-network logos. Apart from the Anurup mark, the icons are from [Tabler Icons](https://tabler.io/icons) (MIT). All of them live in one inline SVG sprite at the top of `index.html`. The favicon is the "Donate" icon from [SVG Repo](https://www.svgrepo.com/) (`donate-svgrepo-com.svg`), recoloured to the site's slate accent. The avatar is the one from the main site.
 - The page doesn't collect or send any data. The browser fetches Lato from Google Fonts and the QR library from cdnjs, and the only thing it stores locally is the theme choice.
 
 ## Quick check after editing

@@ -254,8 +254,10 @@ code,
 }
 
 .site-nav a {
-  display: block;
-  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
   border-radius: var(--radius-control);
   color: var(--text-body);
   font-size: 15px;
@@ -268,10 +270,9 @@ code,
   background: var(--card-background-muted);
 }
 
-.site-nav a[aria-current="page"] {
-  color: var(--accent);
-  font-weight: 700;
-  background: var(--card-background-muted);
+.site-nav .icon {
+  width: 18px;
+  height: 18px;
 }
 
 .theme-toggle {
@@ -832,7 +833,8 @@ main.container {
   }
 }
 
-@media (max-width: 760px) {
+/* Phones: nav drops to its own row under the name */
+@media (max-width: 640px) {
   .header-inner {
     grid-template-columns: 1fr auto;
     grid-template-areas:
@@ -843,36 +845,17 @@ main.container {
   }
 
   .site-nav {
-    margin: 0 calc(var(--gutter) * -1);
-    padding: 0 var(--gutter) 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
+    padding-bottom: 8px;
   }
 
   .site-nav ul {
-    justify-content: space-between;
-    gap: 0;
+    gap: 4px;
+    margin-left: -8px; /* line the first icon up with the avatar while keeping hover padding */
   }
 
   .site-nav a {
     padding: 6px 8px;
     font-size: 14px;
-  }
-
-  .site-nav li:first-child a {
-    padding-left: 0;
-  }
-
-  .site-nav li:last-child a {
-    margin-right: -2px;
-  }
-
-  .site-nav li:first-child a:hover {
-    background: transparent;
   }
 }
 
@@ -950,13 +933,6 @@ main.container {
   .copy-button {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@media (max-width: 400px) {
-  .site-nav a {
-    padding: 6px;
-    font-size: 13px;
   }
 }
 
